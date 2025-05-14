@@ -1,5 +1,5 @@
 {
-  "xsappname" : "capp", 
+  "xsappname" : "CAPP", 
   "scopes"     : [ { 
                     "name" : "$XSAPPNAME.Viewer", 
                     "description" : "able to view data from service" }, 
@@ -43,7 +43,7 @@
   "token-validity": 900,
   "refresh-token-validity": 1800,
   "redirect-uris": [
-      "https://api.cf.us10-001.hana.ondemand.com/login/callback"
+      "https://99b31c1btrial-dev-capp.cfapps.us10-001.hana.ondemand.com/login/callback"
   ],
   "autoapprove": "false"
 },
