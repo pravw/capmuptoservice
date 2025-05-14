@@ -1,0 +1,15 @@
+### test   get the service document
+
+http://localhost:4004/odata/v4/catalogService
+
+
+
+### test   get the service meta data
+
+http://localhost:4004/odata/v4/catalogService/$metadata
+ 
+
+### Testing security :authorization ,authentication
+http://localhost:4004/odata/v4/catalogService/EmployeeSet
+Authorization: Basic guru:
+

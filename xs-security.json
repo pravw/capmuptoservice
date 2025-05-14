@@ -1,0 +1,51 @@
+{
+  "xsappname" : "capp", 
+  "scopes"     : [ { 
+                    "name" : "$XSAPPNAME.Viewer", 
+                    "description" : "able to view data from service" }, 
+                   { 
+                    "name" : "$XSAPPNAME.Admin", 
+                    "description" : "able to edit data" }
+],
+ "attributes" : [ { 
+                    "name" : "BankName", 
+                    "description" : "Bank Name to allow row level security", 
+                    "valueType" : "string" } 
+                 ], 
+ "role-templates": [ { 
+                    "name"                : "Viewer", 
+                    "description"         : "View all the employee", 
+                    "default-role-name": "Viewer: Authorized to Read All employees",
+                    "scope-references"    : [ 
+                                         "$XSAPPNAME.Viewer" ], 
+                    "attribute-references": [
+                                            {
+                                            "name" : "BankName"
+                                            }
+                                            ]  
+                    }, 
+                   { 
+                    "name"               : "Admin", 
+                    "description"        : "Edit the employee details", 
+                    "scope-references"   : [ 
+                                          "$XSAPPNAME.Admin"]
+                    } 
+                   ], 
+ "role-collections": [
+                     {
+                    "name": "UserViewerRL",
+                    "description": "User Viewer Role Collection",
+                    "role-template-references": ["$XSAPPNAME.Viewer"]
+                     }
+                   ],
+ "authorities":["$ACCEPT_GRANTED_AUTHORITIES"],
+ "oauth2-configuration": {
+  "token-validity": 900,
+  "refresh-token-validity": 1800,
+  "redirect-uris": [
+      "https://api.cf.us10-001.hana.ondemand.com/login/callback"
+  ],
+  "autoapprove": "false"
+},
+ "xsenableasyncservice":"true"
+}
